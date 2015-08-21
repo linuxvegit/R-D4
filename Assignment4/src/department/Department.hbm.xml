@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-20 14:27:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="department.Department" table="DEPARTMENT" schema="SS1508C163">
+		<id name="deptId" type="big_decimal">
+			<column name="DEPT_ID" precision="22" scale="0" />
+			<generator class="seqhilo">
+				<param name="sequence">hibernate_seq_dept</param>
+				<param name="max_lo">97</param>
+			</generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="510" not-null="true" unique="true" />
+		</property>
+		<set name="posts" table="POST" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="DEPT_ID" precision="22" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="post.Post" />
+		</set>
+	</class>
+</hibernate-mapping>

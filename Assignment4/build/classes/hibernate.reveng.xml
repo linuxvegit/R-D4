@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="SS1508C163" match-name="APPLICANT"/>
+  <table-filter match-schema="SS1508C163" match-name="DEMAND"/>
+  <table-filter match-schema="SS1508C163" match-name="DEPARTMENT"/>
+  <table-filter match-schema="SS1508C163" match-name="EMPLOYEE"/>
+  <table-filter match-schema="SS1508C163" match-name="POST"/>
+  <table-filter match-schema="SS1508C163" match-name="SCHEDULE"/>
+  <table-filter match-schema="SS1508C163" match-name="COST"/>
+</hibernate-reverse-engineering>

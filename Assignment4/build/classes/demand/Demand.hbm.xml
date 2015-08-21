@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-20 14:27:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="demand.Demand" table="DEMAND" schema="SS1508C163">
+		<id name="demId" type="big_decimal">
+			<column name="DEM_ID" precision="22" scale="0" />
+			<generator class="seqhilo">
+				<param name="sequence">hibernate_seq_demand</param>
+				<param name="max_lo">97</param>
+			</generator>
+		</id>
+		<many-to-one name="schedule" class="schedule.Schedule"
+			fetch="select" lazy="false">
+			<column name="SCHE_ID" precision="22" scale="0" not-null="false" />
+		</many-to-one>
+		<many-to-one name="post" class="post.Post" fetch="select"
+			lazy="false">
+			<column name="POST_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="7" not-null="true" unique="true" />
+		</property>
+		<property name="people" type="big_decimal">
+			<column name="PEOPLE" precision="22" scale="0" />
+		</property>
+		<property name="degree" type="string">
+			<column name="DEGREE" length="510" />
+		</property>
+		<property name="exp" type="string">
+			<column name="EXP" length="510" />
+		</property>
+		<property name="major" type="string">
+			<column name="MAJOR" length="510" />
+		</property>
+		<property name="wage" type="big_decimal">
+			<column name="WAGE" precision="22" scale="0" />
+		</property>
+		<property name="startDate" type="date">
+			<column name="START_DATE" length="7" />
+		</property>
+		<property name="endDate" type="date">
+			<column name="END_DATE" length="7" />
+		</property>
+		<property name="completed" type="big_decimal">
+			<column name="COMPLETED" precision="22" scale="0" />
+		</property>
+		<set name="applicants" table="APPLICANT" inverse="true" lazy="false"
+			fetch="select">
+			<key>
+				<column name="DEM_ID" precision="22" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="applicant.Applicant" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-20 14:27:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="cost.Cost" table="COST" schema="SS1508C163">
+        <id name="id" type="big_decimal">
+            <column name="ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="year" type="big_decimal">
+            <column name="YEAR" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="month" type="big_decimal">
+            <column name="MONTH" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="day" type="big_decimal">
+            <column name="DAY" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="cost" type="big_decimal">
+            <column name="COST" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

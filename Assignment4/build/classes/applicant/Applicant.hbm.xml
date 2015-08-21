@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-20 14:27:22 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+	<class name="applicant.Applicant" table="APPLICANT" schema="SS1508C163">
+		<id name="appId" type="big_decimal">
+			<column name="APP_ID" precision="22" scale="0" />
+			<generator class="seqhilo">
+				<param name="sequence">hibernate_seq_app</param>
+				<param name="max_lo">97</param>
+			</generator>
+		</id>
+		<many-to-one name="demand" class="demand.Demand" fetch="select"
+			lazy="false">
+			<column name="DEM_ID" precision="22" scale="0" not-null="true" />
+		</many-to-one>
+		<property name="phone" type="string">
+			<column name="PHONE" length="62" not-null="true" unique="true" />
+		</property>
+		<property name="name" type="string">
+			<column name="NAME" length="510" not-null="true" />
+		</property>
+		<property name="gender" type="boolean">
+			<column name="GENDER" precision="1" scale="0" not-null="true" />
+		</property>
+		<property name="birthday" type="date">
+			<column name="BIRTHDAY" length="7" not-null="true" />
+		</property>
+		<property name="nation" type="string">
+			<column name="NATION" length="14" not-null="true" />
+		</property>
+		<property name="marriage" type="boolean">
+			<column name="MARRIAGE" precision="1" scale="0" not-null="true" />
+		</property>
+		<property name="address" type="string">
+			<column name="ADDRESS" length="510" not-null="true" />
+		</property>
+		<property name="habit" type="string">
+			<column name="HABIT" length="510" not-null="true" />
+		</property>
+		<property name="health" type="string">
+			<column name="HEALTH" length="14" not-null="true" />
+		</property>
+		<property name="major" type="string">
+			<column name="MAJOR" length="30" />
+		</property>
+		<property name="mail" type="string">
+			<column name="MAIL" length="510" />
+		</property>
+		<property name="education" type="string">
+			<column name="EDUCATION" length="2046" />
+		</property>
+		<property name="skill" type="string">
+			<column name="SKILL" length="510" />
+		</property>
+		<property name="viewDate" type="date">
+			<column name="VIEW_DATE" length="7" />
+		</property>
+	</class>
+</hibernate-mapping>
